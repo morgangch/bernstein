@@ -292,8 +292,7 @@ echo "$(minikube ip) poll.dop.io result.dop.io" | sudo tee -a /etc/hosts
 ### Accès au Dashboard Traefik :
 ```bash
 # Via port-forward (recommandé)
-kubectl port-forward -n kube-public $(kubectl get pod -n kube-public -l app=traefik -o jsonpath='{.items[0].metadata.name}') 8080:8080
-
+kubectl port-forward -n kube-public service/traefik-service 30042:8080
 # Puis accéder à : http://localhost:8080/dashboard/
 ```
 

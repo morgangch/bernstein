@@ -18,4 +18,4 @@ kubectl wait --for=condition=ready pod -l app=postgres --timeout=60s
 echo "CREATE TABLE IF NOT EXISTS votes (id text PRIMARY KEY, vote text NOT NULL);" | \
 kubectl exec -i $(kubectl get pod -l app=postgres -o jsonpath='{.items[0].metadata.name}') -c postgres -- psql -U postgres -d voting
 echo "$(minikube ip) poll.dop.io result.dop.io" | sudo tee -a /etc/hosts
-kubectl port-forward -n kube-public $(kubectl get pod -n kube-public -l app=traefik -o jsonpath='{.items[0].metadata.name}') 8080:8080 &
+kubectl port-forward -n kube-public service/traefik-service 30042:8080 &
