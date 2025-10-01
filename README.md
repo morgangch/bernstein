@@ -228,6 +228,11 @@ PostgreSQL ← Result
 
 ### Ordre de déploiement recommandé :
 
+0. **Démarrer Minikube**
+   ```bash
+   minikube start
+   ```
+
 1. **Secrets et ConfigMaps**
    ```bash
    kubectl apply -f postgres.secret.yaml
